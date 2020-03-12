@@ -71,6 +71,14 @@ for i in qemu-server vz pvedaemon pve-cluster; do systemctl start $i ; done
 If nothing goes wrong, and you have separately restored the VM images using the default ProxMox process.  
 You should be back where you started. But let's hope it never comes to that.
 
+### API
+The Proxmox API scripts are located in the API folder.
+Currently there are:
+```
+/api/lxc: startlxc.sh, stoplxc.sh, shutdownlxc.sh, restartlxc.sh, suspendlxc.sh and resumelxc.sh
+/api/vm: startvm.sh, stopvm.sh, shutdownvm.sh, restartvm.sh, resetvm.sh, suspendvm.sh and resumevm.sh
+```
+
 ### Sources
 http://ziemecki.net/content/proxmox-config-backups
 
