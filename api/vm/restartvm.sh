@@ -1,3 +1,7 @@
+#!/bin/bash
+# Date		12.03.2020
+# Author 	TechHome
+
 PROX_USERNAME=root@pam
 PROX_PASSWORD=mypassword
 HOST=myproxmoxhost
