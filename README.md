@@ -1,7 +1,7 @@
 # ProxmoxTools
 📦 A collection of stuff that I wrote for Proxmox 📦
 
-[![GitHub Release][releases-shield]][releases]
+
 [![License][license-shield]](LICENSE.md)
 
 ![Project Maintenance][maintenance-shield]
@@ -71,6 +71,13 @@ for i in qemu-server vz pvedaemon pve-cluster; do systemctl start $i ; done
 If nothing goes wrong, and you have separately restored the VM images using the default ProxMox process.  
 You should be back where you started. But let's hope it never comes to that.
 
+### Leave cluster
+With this script you can leave a cluster or a local created cluster. By uncommenting line 27 you would also delete all configs of containers and co.
+Currently its here:
+```
+/: leave-cluster.sh
+```
+
 ### API
 The Proxmox API scripts are located in the API folder.
 Currently there are:
@@ -84,8 +91,7 @@ http://ziemecki.net/content/proxmox-config-backups
 
 
 
-FEEL FREE TO POST ISSUES
-
+Feel free to post issues
 
 ## Authors & contributors
 
