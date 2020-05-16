@@ -14,17 +14,6 @@
 
 <!-- 🎉 Release of ProxmoxTools 0.0.1 -->
 
-## About
-
-# Proxmox tools
-This is a collection of usefull stuff for Proxmox.
-
-## Proxmox config backup
-
-I just wrote this script quick and dirty. Not really tested yet! But it might still be of help.
-Example:
--<--->-
-
 ### Features
 
 -<--->-
