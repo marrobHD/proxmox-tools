@@ -33,9 +33,9 @@ Example:
 
 ### Backup
 * Download the [script](https://raw.githubusercontent.com/marrobHD/proxmox-tools/master/prox_config_backup.sh)  
-```cd /root/; wget -qO- https://raw.githubusercontent.com/marrobHD/proxmox-tools/master/prox_config_backup.sh```
-* Set the permanent backups directory ```export BACKUP_DIR="/path/to/backup/directory"```
-* Make the script executable ```chmod +x ./prox_config_backup.sh```
+```cd /root/; wget -qO- https://raw.githubusercontent.com/marrobHD/proxmox-tools/master/prox_config_backup.sh > prox_config_backup.sh ```
+* Set the permanent backups directory ```export BACKUP_DIR="/root/proxmox_backups/"```
+* Make the script executable ```mkdir /root/proxmox_backups/; chmod +x ./prox_config_backup.sh```
 * Shut down ALL VMs + LXC Containers if you want to go the save way. (Not required) ```service pve-manager stop```
 * Run the script ```./prox_config_backup.sh```
 
