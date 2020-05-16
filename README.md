@@ -31,11 +31,17 @@ Example:
 <!-- also includes... -->
 
 
+### Remove Proxmox Nag
+Removes the nag from Proxmox | Tested 5.1-3 - 6.2-4
+* Download the [script](https://raw.githubusercontent.com/marrobHD/proxmox-tools/master/ProxmoxNag.sh)  
+```cd /root/; wget -qO- https://raw.githubusercontent.com/marrobHD/proxmox-tools/master/ProxmoxNag.sh > ProxmoxNag.sh```
+* Make the script executable and run it ```chmod +x ./ProxmoxNag.sh; ./ProxmoxNag.sh```
+
 ### Backup
 * Download the [script](https://raw.githubusercontent.com/marrobHD/proxmox-tools/master/prox_config_backup.sh)  
-```cd /root/; wget -qO- https://raw.githubusercontent.com/marrobHD/proxmox-tools/master/prox_config_backup.sh > prox_config_backup.sh ```
+```cd /root/; wget -qO- https://raw.githubusercontent.com/marrobHD/proxmox-tools/master/prox_config_backup.sh > prox_config_backup.sh```
 * Set the permanent backups directory ```export BACKUP_DIR="/root/proxmox_backups/"```
-* Make the script executable ```mkdir /root/proxmox_backups/; chmod +x ./prox_config_backup.sh```
+* Create a proxmox_backups folder and make the script executable ```mkdir /root/proxmox_backups/; chmod +x ./prox_config_backup.sh```
 * Shut down ALL VMs + LXC Containers if you want to go the save way. (Not required) ```service pve-manager stop```
 * Run the script ```./prox_config_backup.sh```
 
