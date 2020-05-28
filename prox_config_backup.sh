@@ -1,6 +1,6 @@
 #!/bin/bash
 # Version	      0.2.2 - BETA ! !
-# Date		      02.20.2020
+# Date		      28.05.2020
 # Author 	      DerDanilo 
 # Contributors    aboutte, xmirakulix, bootsie123
 
