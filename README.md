@@ -24,7 +24,7 @@
 Removes the nag from Proxmox | Tested 5.1-3 - 6.2-4
 * Download the [script](https://raw.githubusercontent.com/marrobHD/proxmox-tools/master/ProxmoxNag.sh)  
 ```cd /root/; wget -qO- https://raw.githubusercontent.com/marrobHD/proxmox-tools/master/ProxmoxNag.sh > ProxmoxNag.sh```
-* Make the script executable and run it ```chmod +x ./ProxmoxNag.sh; ./ProxmoxNag.sh```
+* Make the script executable and run it ```chmod +x ProxmoxNag.sh; ./ProxmoxNag.sh```
 
 ### Backup
 * Download the [script](https://raw.githubusercontent.com/marrobHD/proxmox-tools/master/prox_config_backup.sh)  
@@ -68,10 +68,10 @@ You should be back where you started. But let's hope it never comes to that.
 
 ### Leave cluster
 With this script you can leave a cluster or a local created cluster. By uncommenting line 27 you would also delete all configs of containers and co.
-Currently its here:
-```
-/: leave-cluster.sh
-```
+* Currently its here: ``` /: leave-cluster.sh ```
+* Download the [script](https://raw.githubusercontent.com/marrobHD/proxmox-tools/master/leave-cluster.sh)  
+```cd /root/; wget -qO- https://raw.githubusercontent.com/marrobHD/proxmox-tools/master/leave-cluster.sh > leave-cluster.sh```
+* Make the script executable and run it ```chmod +x leave-cluster.sh; ./leave-cluster.sh```
 
 ### API
 The Proxmox API scripts are located in the API folder.
