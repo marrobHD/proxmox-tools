@@ -1,5 +1,5 @@
 # ProxmoxTools
-📦 A collection of stuff that I wrote for Proxmox 📦
+📦 A collection of stuff that I and others wrote for Proxmox 📦
 
 
 [![License][license-shield]](LICENSE.md)
