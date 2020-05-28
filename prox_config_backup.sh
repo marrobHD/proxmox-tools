@@ -1,7 +1,8 @@
 #!/bin/bash
-# Version	0.0.1 - BETA!!!
-# Date		27.02.2020
-# Author 	TechHome
+# Version	      0.2.2 - BETA ! !
+# Date		      02.20.2020
+# Author 	      DerDanilo 
+# Contributors    aboutte, xmirakulix, bootsie123
 
 # set vars
 
@@ -10,8 +11,11 @@ set -e
 
 # permanent backups directory
 # default value can be overridden by setting environment variable before running prox_config_backup.sh
-# example: export BACKUP_DIR="/mnt/pve/media/backup"
-_bdir=${BACKUP_DIR:-/mnt/backups/proxmox}
+# example: export BACKUP_DIR="/mnt/pve/media/backup
+_bdir=${BACK_DIR:-/mnt/backups/proxmox}
+
+# number of backups to keep before overriding the oldest one
+MAX_BACKUPS=5
 
 # temporary storage directory
 _tdir=${TMP_DIR:-/var/tmp}
@@ -57,7 +61,7 @@ function description {
         your instances.
 
         For questions or suggestions please contact me at
-        https://github.com/marrobHD/proxmox-tools
+        https://github.com/DerDanilo/proxmox-stuff
         -----------------------------------------------------------------
 
         Hit return to proceed or CTRL-C to abort.
@@ -70,6 +74,14 @@ EOF
 function are-we-root-abort-if-not {
     if [[ ${EUID} -ne 0 ]] ; then
       echo "Aborting because you are not root" ; exit 1
+    fi
+}
+
+function check-num-backups {
+    if [[ $(ls ${_bdir} -l | grep ^- | wc -l) -ge $MAX_BACKUPS ]]; then
+      local oldbackup="$(ls ${_bdir} -t | tail -1)"
+      echo "${_bdir}/${oldbackup}"
+      rm "${_bdir}/${oldbackup}"
     fi
 }
 
@@ -110,6 +122,7 @@ function startservices {
 
 description
 are-we-root-abort-if-not
+check-num-backups
 
 # We don't need to stop services, but you can do that if you wish
 #stopservices
