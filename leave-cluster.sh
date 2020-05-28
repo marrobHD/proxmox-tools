@@ -12,10 +12,13 @@ systemctl stop pve-cluster
 
 
 #3. edit through sqlite, check, delete, verify
-sqlite3 /var/lib/pve-cluster/config.db
-sqlite> select * from tree where name = 'corosync.conf';
-sqlite> delete from tree where name = 'corosync.conf';
-sqlite> select * from tree where name = 'corosync.conf';
+sqlite3 /var/lib/pve-cluster/config.db <<EOF
+select * from tree where name = 'corosync.conf';
+delete from tree where name = 'corosync.conf';
+select * from tree where name = 'corosync.conf';
+.quit
+EOF
+
 sqlite> .quit
 
 
