@@ -60,8 +60,9 @@ function description {
         built in backup feature or a backup solution that runs within
         your instances.
 
-        For questions or suggestions please contact me at
+        For questions or suggestions please contact DerDanilo at
         https://github.com/DerDanilo/proxmox-stuff
+        or me at https://github.com/marrobHD/proxmox-tools
         -----------------------------------------------------------------
 
         Hit return to proceed or CTRL-C to abort.
