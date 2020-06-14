@@ -2,9 +2,11 @@
 # Version	      0.2.2 - BETA ! !
 # Date		      28.05.2020
 # Author 	      DerDanilo 
-# Contributors    aboutte, xmirakulix, bootsie123
+# Contributors    aboutte, xmirakulix, bootsie123, TechHome
 
 # set vars
+
+SILENT=${1}
 
 # always exit on error
 set -e
@@ -40,6 +42,8 @@ _filename4="$_tdir/proxmox_backup_"$_HOSTNAME"_"$_now".tar.gz"
 
 ##########
 
+if [ "$SILENT" != "-a" ]
+then
 function description {
     clear
     cat <<EOF
@@ -71,6 +75,36 @@ EOF
     read dummy
     clear
 }
+else
+    clear
+    cat <<EOF
+
+        Proxmox Server Config Backup
+        Hostname: "$_HOSTNAME"
+        Timestamp: "$_now"
+
+        Files to be saved:
+        "/etc/*, /var/lib/pve-cluster/*, /root/*"
+
+        Backup target:
+        "$_bdir"
+        -----------------------------------------------------------------
+
+        This script is supposed to backup your node config and not VM
+        or LXC container data. To backup your instances please use the
+        built in backup feature or a backup solution that runs within
+        your instances.
+
+        For questions or suggestions please contact DerDanilo at
+        https://github.com/DerDanilo/proxmox-stuff
+        or me at https://github.com/marrobHD/proxmox-tools
+        -----------------------------------------------------------------
+
+        Auto proceed automatically or CTRL-C to abort.
+
+EOF
+	sleep 2
+fi
 
 function are-we-root-abort-if-not {
     if [[ ${EUID} -ne 0 ]] ; then
@@ -121,7 +155,7 @@ function startservices {
 ##########
 
 
-description
+#description
 are-we-root-abort-if-not
 check-num-backups
 
