@@ -106,7 +106,7 @@ check [the contributor's page][contributors].
 [contributors]: https://github.com/marrobHD/proxmox-tools/graphs/contributors
 [forum-shield]: https://img.shields.io/badge/community-forum-brightgreen.svg?style=for-the-badge
 [license-shield]: https://img.shields.io/github/license/marrobHD/proxmox-tools.svg?style=for-the-badge
-[maintenance-shield]: https://img.shields.io/badge/maintainer-Marlon-blue.svg?style=for-the-badge
+[maintenance-shield]: https://img.shields.io/badge/maintainer-TechHome-blue.svg?style=for-the-badge
 [TechHome]: https://github.com/marrobHD
 [releases-shield]: https://img.shields.io/github/release/marrobHD/proxmox-tools.svg?style=for-the-badge
 [releases]: https://github.com/marrobHD/proxmox-tools/releases
