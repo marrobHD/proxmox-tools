@@ -12,7 +12,7 @@ set -e
 # permanent backups directory
 # default value can be overridden by setting environment variable before running prox_config_backup.sh
 # example: export BACKUP_DIR="/mnt/pve/media/backup
-_bdir=${BACK_DIR:-/mnt/backups/proxmox}
+_bdir=${BACKUP_DIR:-/mnt/backups/proxmox}
 
 # number of backups to keep before overriding the oldest one
 MAX_BACKUPS=5
