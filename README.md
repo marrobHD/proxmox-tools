@@ -27,12 +27,17 @@ Removes the nag from Proxmox | Tested 5.1-3 - 6.2-4
 * Make the script executable and run it ```chmod +x ProxmoxNag.sh; ./ProxmoxNag.sh```
 
 ### Backup
+User Mode:
 * Download the [script](https://raw.githubusercontent.com/marrobHD/proxmox-tools/master/prox_config_backup.sh)  
 ```cd /root/; wget -qO- https://raw.githubusercontent.com/marrobHD/proxmox-tools/master/prox_config_backup.sh > prox_config_backup.sh```
 * Set the permanent backups directory ```export BACKUP_DIR="/root/proxmox_backups/"```
 * Create a proxmox_backups folder and make the script executable ```mkdir /root/proxmox_backups/; chmod +x ./prox_config_backup.sh```
 * Shut down ALL VMs + LXC Containers if you want to go the save way. (Not required) ```service pve-manager stop```
 * Run the script ```./prox_config_backup.sh```
+
+Automatic Mode:
+* Oneline the [script](https://raw.githubusercontent.com/marrobHD/proxmox-tools/master/prox_config_backup.sh) with `-a`                     
+```cd /root/; wget -qO- https://raw.githubusercontent.com/marrobHD/proxmox-tools/master/prox_config_backup.sh > prox_config_backup.sh; chmod +x ./prox_config_backup.sh; export BACKUP_DIR="/mnt/pve/freenas/"; ./prox_config_backup.sh -a```
 
 ### Restore
 On my machine, you end up with a GZipped file of about 1-10 MB with a name like "proxmox_backup_proxmoxhostname_2017-12-02.15.48.10.tar.gz".  
