@@ -26,6 +26,12 @@ Removes the nag from Proxmox | Tested 5.1-3 - 6.2-4
 ```cd /root/; wget -qO- https://raw.githubusercontent.com/marrobHD/proxmox-tools/master/ProxmoxNag.sh > ProxmoxNag.sh```
 * Make the script executable and run it ```chmod +x ProxmoxNag.sh; ./ProxmoxNag.sh```
 
+### Remove Proxmox Nag and Community repo
+Removes the nag from Proxmox | Tested 5.1-3 - 6.2-4
+* Download the [script](https://raw.githubusercontent.com/marrobHD/proxmox-tools/master/proxmoxve_community.sh)  
+```cd /root/; wget -qO- https://raw.githubusercontent.com/marrobHD/proxmox-tools/master/proxmoxve_community.sh > proxmoxve_community.sh```
+* Make the script executable and run it ```chmod +x proxmoxve_community.sh; ./proxmoxve_community.sh```
+
 ### Backup
 User Mode:
 * Download the [script](https://raw.githubusercontent.com/marrobHD/proxmox-tools/master/prox_config_backup.sh)  
