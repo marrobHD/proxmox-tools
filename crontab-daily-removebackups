@@ -1,4 +1,4 @@
 # crontab -e
 
 # Checks daily whether a file in the folder "/mnt/pve/freenas/dump" contains the name vzdump and deletes the file if it's older than 14 days
-@daily find /mnt/pve/freenas/dump/ -name 'vzdump*' -type f -mtime +14 -exec rm -f {} \; 
+@daily /usr/bin/find /mnt/pve/freenas/dump/ -name 'vzdump*' -type f -mtime +14 -exec rm -f {} \; 
