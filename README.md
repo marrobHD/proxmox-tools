@@ -9,7 +9,6 @@
 [![Discord][discord-shield]][discord]
 ![Community Forum][forum-shield]
 
-[![Twitter][twitter]][twitter]
 [![Github][github]][github]
 
 <!-- 🎉 Release of ProxmoxTools 0.0.1 -->
@@ -128,5 +127,4 @@ check [the contributor's page][contributors].
 [maintenance-shield]: https://img.shields.io/badge/maintainer-Marlon-blue.svg?style=for-the-badge
 [releases-shield]: https://img.shields.io/github/release/marrobHD/proxmox-tools.svg?style=for-the-badge
 [releases]: https://github.com/marrobHD/proxmox-tools/releases
-[twitter]: https://img.shields.io/twitter/follow/TechxHome.svg?style=social
 [github]: https://img.shields.io/github/followers/marrobHD.svg?style=social
