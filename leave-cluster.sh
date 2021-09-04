@@ -19,8 +19,6 @@ select * from tree where name = 'corosync.conf';
 .quit
 EOF
 
-sqlite> .quit
-
 
 #3. Remove directories
 pmxcfs -l
