@@ -1,20 +1,18 @@
 #!/bin/bash
 # Version	      0.2.2 - BETA ! !
-# Date		      28.05.2020
+# Date		      02.20.2020
 # Author 	      DerDanilo 
-# Contributors    aboutte, xmirakulix, bootsie123, TechHome
+# Contributors    aboutte, xmirakulix, bootsie123
 
 # set vars
-
-SILENT=${1}
 
 # always exit on error
 set -e
 
 # permanent backups directory
 # default value can be overridden by setting environment variable before running prox_config_backup.sh
-# example: export BACKUP_DIR="/mnt/pve/media/backup
-_bdir=${BACKUP_DIR:-/mnt/backups/proxmox}
+# example: export BACK_DIR="/mnt/pve/media/backup
+_bdir=${BACK_DIR:-/mnt/backups/proxmox}
 
 # number of backups to keep before overriding the oldest one
 MAX_BACKUPS=5
@@ -38,12 +36,14 @@ _HOSTNAME=$(hostname -f)
 _filename1="$_tdir/proxmoxetc.$_now.tar"
 _filename2="$_tdir/proxmoxpve.$_now.tar"
 _filename3="$_tdir/proxmoxroot.$_now.tar"
-_filename4="$_tdir/proxmox_backup_"$_HOSTNAME"_"$_now".tar.gz"
+_filename4="$_tdir/proxmoxcron.$_now.tar"
+_filename5="$_tdir/proxmoxvbios.$_now.tar"
+_filename6="$_tdir/proxmoxpackages.$_now.list"
+_filename7="$_tdir/proxmoxreport.$_now.txt"
+_filename_final="$_tdir/proxmox_backup_"$_HOSTNAME"_"$_now".tar.gz"
 
 ##########
 
-if [ "$SILENT" != "-a" ]
-then
 function description {
     clear
     cat <<EOF
@@ -53,7 +53,7 @@ function description {
         Timestamp: "$_now"
 
         Files to be saved:
-        "/etc/*, /var/lib/pve-cluster/*, /root/*"
+        "/etc/*, /var/lib/pve-cluster/*, /root/*, /var/spool/cron/*, /usr/share/kvm/*.vbios"
 
         Backup target:
         "$_bdir"
@@ -66,7 +66,6 @@ function description {
 
         For questions or suggestions please contact DerDanilo at
         https://github.com/DerDanilo/proxmox-stuff
-        or me at https://github.com/marrobHD/proxmox-tools
         -----------------------------------------------------------------
 
         Hit return to proceed or CTRL-C to abort.
@@ -75,36 +74,6 @@ EOF
     read dummy
     clear
 }
-else
-    clear
-    cat <<EOF
-
-        Proxmox Server Config Backup
-        Hostname: "$_HOSTNAME"
-        Timestamp: "$_now"
-
-        Files to be saved:
-        "/etc/*, /var/lib/pve-cluster/*, /root/*"
-
-        Backup target:
-        "$_bdir"
-        -----------------------------------------------------------------
-
-        This script is supposed to backup your node config and not VM
-        or LXC container data. To backup your instances please use the
-        built in backup feature or a backup solution that runs within
-        your instances.
-
-        For questions or suggestions please contact DerDanilo at
-        https://github.com/DerDanilo/proxmox-stuff
-        or me at https://github.com/marrobHD/proxmox-tools
-        -----------------------------------------------------------------
-
-        Auto proceed automatically or CTRL-C to abort.
-
-EOF
-	sleep 2
-fi
 
 function are-we-root-abort-if-not {
     if [[ ${EUID} -ne 0 ]] ; then
@@ -113,8 +82,8 @@ function are-we-root-abort-if-not {
 }
 
 function check-num-backups {
-    if [[ $(ls ${_bdir} -l | grep ^- | wc -l) -ge $MAX_BACKUPS ]]; then
-      local oldbackup="$(ls ${_bdir} -t | tail -1)"
+    if [[ $(ls ${_bdir}/*${_HOSTNAME}*.tar.gz -l | grep ^- | wc -l) -ge $MAX_BACKUPS ]]; then
+      local oldbackup="$(basename $(ls ${_bdir}/*${_HOSTNAME}*.tar.gz -t | tail -1))"
       echo "${_bdir}/${oldbackup}"
       rm "${_bdir}/${oldbackup}"
     fi
@@ -126,16 +95,27 @@ function copyfilesystem {
     tar --warning='no-file-ignored' -cvPf "$_filename1" /etc/.
     tar --warning='no-file-ignored' -cvPf "$_filename2" /var/lib/pve-cluster/.
     tar --warning='no-file-ignored' -cvPf "$_filename3" /root/.
+    tar --warning='no-file-ignored' -cvPf "$_filename4" /var/spool/cron/.
+    if [ "$(ls /usr/share/kvm/*.vbios 2>/dev/null)" != "" ] ; then
+	echo backing up custom video bios...
+	tar --warning='no-file-ignored' -cvPf "$_filename5" /usr/share/kvm/*.vbios
+    fi
+    # copy installed packages list
+    echo "Copying installed packages list from APT"
+    apt-mark showmanual | tee "$_filename6"
+    # copy pvereport output
+    echo "Copying pvereport output"
+    pvereport | tee "$_filename7"
 }
 
 function compressandarchive {
     echo "Compressing files"
     # archive the copied system files
-    tar -cvzPf "$_filename4" $_tdir/*.tar
+    tar -cvzPf "$_filename_final" $_tdir/*.{tar,list,txt}
 
     # copy config archive to backup folder
     # this may be replaced by scp command to place in remote location
-    cp $_filename4 $_bdir/
+    cp $_filename_final $_bdir/
 }
 
 function stopservices {
@@ -155,7 +135,7 @@ function startservices {
 ##########
 
 
-#description
+description
 are-we-root-abort-if-not
 check-num-backups
 
