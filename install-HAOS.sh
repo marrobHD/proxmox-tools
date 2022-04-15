@@ -1,4 +1,4 @@
-#!/usr/bin bash
+#!/usr/bin/bash
 
 # Setup script environment
 set -o errexit  #Exit immediately if a pipeline returns a non-zero status
