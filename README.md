@@ -47,7 +47,27 @@ To remove the Proxmox Nag & add Community Repo, run the following in the Proxmox
 ```yaml
 bash -c "$(wget -qLO - https://raw.githubusercontent.com/marrobHD/proxmox-tools/master/proxmoxve_community.sh)"
 ```
+ 
+____________________________________________________________________________________________
+</details>
 
+<details>
+<summary markdown="span"> Proxmox CPU Scaling Governor </summary>
+ 
+<p align="center"><img src="https://avatars.githubusercontent.com/u/2678585?s=200&amp;v=4" width="100" height="100"/></p>
+ 
+<h1 align="center" id="heading"> Proxmox CPU Scaling Governor </h1>
+
+CPU Scaling Governor enables the operating system to scale the CPU frequency up or down in order to save power or improve performance.
+
+
+[Generic Scaling Governors](https://www.kernel.org/doc/html/latest/admin-guide/pm/cpufreq.html?#generic-scaling-governors)
+
+Run the following in the Proxmox Shell.
+
+```yaml
+bash -c "$(wget -qLO - https://raw.githubusercontent.com/marrobHD/proxmox-tools/master/scaling-governor.sh)"
+```
 
 ____________________________________________________________________________________________
 </details>
@@ -55,7 +75,7 @@ ________________________________________________________________________________
 <details>
 <summary markdown="span"> Backup Proxmox Config </summary>
  
-<p align="center"><img src="https://avatars.githubusercontent.com/u/2678585?s=200&amp;v=4" alt="@home-assistant" width="100" height="100"/></p>
+<p align="center"><img src="https://avatars.githubusercontent.com/u/2678585?s=200&amp;v=4" width="100" height="100"/></p>
  
 <h1 align="center" id="heading"> Backup Proxmox Config Manual </h1>
 
