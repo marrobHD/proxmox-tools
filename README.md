@@ -31,23 +31,38 @@ To remove the Proxmox Nag, run the following in the Proxmox Shell
 ```yaml
 bash -c "$(wget -qLO - https://raw.githubusercontent.com/marrobHD/proxmox-tools/master/ProxmoxNag.sh)"
 ```
-
 ____________________________________________________________________________________________
 </details>
 
 <details>
-<summary markdown="span"> 🔸Remove Proxmox Nag & Add Community Repo </summary>
+<summary markdown="span"> 🔸Remove ProxmoxVE Nag & Add Community Repo </summary>
  
 <p align="center"><img src="https://avatars.githubusercontent.com/u/2678585?s=200&amp;v=4" alt="@home-assistant" width="100" height="100"/></p>
  
-<h1 align="center" id="heading"> Remove Proxmox Nag & Add Community Repo | Tested 5.1-3 - 7.1-12 </h1>
+<h1 align="center" id="heading"> Remove ProxmoxVE Nag & Add Community Repo | Tested 5.1-3 - 7.2-7 </h1>
 
 To remove the Proxmox Nag & add Community Repo, run the following in the Proxmox Shell
 
 ```yaml
 bash -c "$(wget -qLO - https://raw.githubusercontent.com/marrobHD/proxmox-tools/master/proxmoxve_community.sh)"
 ```
+
+____________________________________________________________________________________________
+</details>
+
+<details>
+<summary markdown="span"> 🔸Remove ProxmoxBS Nag & Add Community Repo </summary>
  
+<p align="center"><img src="https://avatars.githubusercontent.com/u/2678585?s=200&amp;v=4" alt="@home-assistant" width="100" height="100"/></p>
+ 
+<h1 align="center" id="heading"> Remove ProxmoxBS Nag & Add Community Repo | Tested 2.2-1 - NAN </h1>
+
+To remove the Proxmox Nag & add Community Repo, run the following in the Proxmox Shell
+
+```yaml
+bash -c "$(wget -qLO - https://raw.githubusercontent.com/marrobHD/proxmox-tools/master/proxmoxbs_community.sh)"
+```
+
 ____________________________________________________________________________________________
 </details>
 
