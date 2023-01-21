@@ -99,7 +99,7 @@ To create a new Proxmox Node Config Backup, do the following in the Proxmox Shel
 ```yaml
 * Download the [script](https://raw.githubusercontent.com/marrobHD/proxmox-tools/master/prox_config_backup.sh)  
 ```cd /root/; wget -qO- https://raw.githubusercontent.com/marrobHD/proxmox-tools/master/prox_config_backup.sh > prox_config_backup.sh```
-* Set the permanent backups directory ```export BACKUP_DIR="/root/proxmox_backups/"```
+* Set the permanent backups directory ```export BACK_DIR="/root/proxmox_backups/"```
 * Create a proxmox_backups folder and make the script executable ```mkdir /root/proxmox_backups/; chmod +x ./prox_config_backup.sh```
 * Shut down ALL VMs + LXC Containers if you want to go the save way. (Not required) ```service pve-manager stop```
 * Run the script ```./prox_config_backup.sh```
