@@ -233,6 +233,26 @@ ________________________________________________________________________________
 </details>
 
 
+<details>
+<summary markdown="span"> 🔸ftagent - DDoS Detection for Proxmox LXC </summary>
+ 
+<p align="center"><img src="https://avatars.githubusercontent.com/u/2678585?s=200&v=4" alt="@proxmox" width="100" height="100"/></p>
+ 
+<h1 align="center" id="heading"> ftagent DDoS Detection Agent - Proxmox LXC Helper </h1>
+
+Deploy the [ftagent](https://github.com/Flowtriq/proxmox-ftagent) DDoS detection agent into a Proxmox VE LXC container with a single command.
+
+Run the following in the Proxmox Shell:
+
+```yaml
+bash -c "$(wget -qLO - https://raw.githubusercontent.com/Flowtriq/proxmox-ftagent/main/install.sh)"
+```
+
+____________________________________________________________________________________________
+
+</details>
+
+
 ### Sources
 http://ziemecki.net/content/proxmox-config-backups
 
